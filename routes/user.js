@@ -3,16 +3,12 @@ const router = express.Router();
 const { updateProfilePicture, updateEmail, updatePassword, deleteUserAccount } = require("../controllers/user.js");
 const  auth  = require("../middleware/auth.js");
 
-// Profil resmini güncelleme
-router.patch("/updateProfilePicture", auth, updateProfilePicture);
+router.patch("/profilePicture", auth, updateProfilePicture);
 
-// E-postayı güncelleme
-router.patch("/updateEmail", auth, updateEmail);
+router.patch("/email", auth, updateEmail);
 
-// Şifreyi güncelleme
-router.patch("/updatePassword", auth, updatePassword);
+router.patch("/password", auth, updatePassword);
 
-// Hesabı silme
-router.delete("/deleteAccount", auth, deleteUserAccount);
+router.delete("/account", auth, deleteUserAccount);
 
 module.exports = router;

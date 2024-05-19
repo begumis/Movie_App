@@ -4,7 +4,7 @@ const bcrypt = require('bcryptjs');
 const updateProfilePicture = async (req, res) => {
     try {
         const { profilePicture } = req.body;
-        const userId = req.user.id; // Kullanıcının kimliğini al
+        const userId = req.user.id; 
 
         console.log(req.user.id);
         console.log(userId);

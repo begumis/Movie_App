@@ -1,20 +1,17 @@
 const express = require("express");
-const cors = require("cors");
 const dotenv = require("dotenv");
-const bodyParser = require("body-parser");
-const mongoose = require("mongoose");
-const db = require("./config/db");
+
+const db = require("./config/db.js");
+const appConfig = require("./config/appConfig.js");
+
 const Auth = require("./routes/auth.js");
 const Movie = require("./routes/movie.js");
 const User = require("./routes/user.js");
 
 dotenv.config();
 const app = express();
-app.use(cors());
 
-
-app.use(express.json()); // JSON verilerini analiz etmek için express.json() middleware'ini kullanıyoruz
-
+appConfig(app);
 
 db();
 
@@ -22,8 +19,8 @@ db();
 //     res.send("Hello World");
 //     });
 
-app.use('/', Auth);
-app.use('/', Movie);
+app.use('/auth', Auth);
+app.use('/movie', Movie);
 app.use('/settings', User);
 
 const PORT = process.env.PORT || 3000;

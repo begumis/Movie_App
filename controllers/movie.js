@@ -24,7 +24,7 @@ const getMovieDetail = async (req, res) => {
     }
 }
 
-const getMovieUpdate = async (req, res) => {
+const updateMovie = async (req, res) => {
     try {
         const { id } = req.params;
         const updateMovie = await movieSchema.findByIdAndUpdate(id,req.body,{new:true});
@@ -74,4 +74,4 @@ const getAllMovies = async (req, res) => {
   }
 };
 
-module.exports = {getAllMovies, createMovie, getMovieDetail, getMovieUpdate, deleteMovie};
+module.exports = {getAllMovies, createMovie, getMovieDetail, updateMovie, deleteMovie};
